@@ -108,5 +108,8 @@ spec:
 ```
   $ kubectl delete all --all
 ```
-  
+14. Chuyển đổi namespace
+```
+  $ kubectl config set-context $(kubectl config current-context) --namespace=<NAMESPACE>
+``
  
