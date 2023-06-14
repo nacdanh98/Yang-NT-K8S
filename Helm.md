@@ -63,9 +63,25 @@ Trang tìm kiếm repo public https://artifacthub.io/packages/search?kind=0
  ```
   helm status $name_release
  ```
+ - Nâng cấp version lên version mới
+ ```
+  helm upgrade $name $chart_name/$chartpkg --version $newversionnumber -n $namespace
+ ```
+ - Xem lịch sử cập nhật của release
+ ```
+  helm history $name
+ ```
  - Quay trở lại version cũ
  ```
-  helm rollback v
+   helm rollback $name $number_revision
+  ```
+  - Lấy ra tất cả thông tin của chart
+  ```
+   helm get all $name_chart 
+  ```
+  - Lấy ra thông tin manifest
+  ```
+   helm get mainifest $name_chart
   ```
   # Cách viết helm chart
   - Tạo chart mới
@@ -79,4 +95,33 @@ Trang tìm kiếm repo public https://artifacthub.io/packages/search?kind=0
    - Tạo file index.yaml
    ```
     helm repo index .
+   ```
+   - kiểm tra xem chart có vấn đề gì không
+   ```
+    helm lint
+   ```
+   - gen ra manifest kiểm tra chart đã viết 
+   ```
+     helm template --release-name $name $directory -f values.yaml -n $namespace 
+   ```
+   - Thêm dependencies
+   Ví dụ:
+   ```
+    dependencies:
+      - name: redis-ha
+        version: 4.23.0
+        repository: https://dandydeveloper.github.io/charts/
+        condition: redis-ha.enabled
+   ```
+   - list thông tin về dependency
+   ```
+    helm dependency list
+   ```
+   - Build dependency 
+   ```
+    helm dependency build
+   ```
+   - Update dependency
+   ```
+    helm dependency update
    ```
