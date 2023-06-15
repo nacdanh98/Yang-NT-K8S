@@ -116,4 +116,9 @@ spec:
 ```
   $ kubectl exec -it pod_name /bin/bash
 ```
+16. Lấy tên container bên trong pod
+```
+  $ kubectl get pods pod_name -o jsonpath='{range .spec.containers[*]}{.name}{"\n"}{end}' -n name_space
+```
+	
  
