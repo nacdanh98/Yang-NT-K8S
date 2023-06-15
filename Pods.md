@@ -111,5 +111,9 @@ spec:
 14. Chuyển đổi namespace
 ```
   $ kubectl config set-context $(kubectl config current-context) --namespace=<NAMESPACE>
-``
+```
+15. Truy cập vào bên trong 1 pod
+```
+  $ kubectl exec -it pod_name /bin/bash
+```
  
