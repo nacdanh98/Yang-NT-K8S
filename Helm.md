@@ -98,7 +98,7 @@ Trang tìm kiếm repo public https://artifacthub.io/packages/search?kind=0
  ```
  - Cài đặt từ package bên trong chart
  ```
-  helm install $name $chart_name/$chartpkg --version $number -n $namespace
+  helm install $name_release $chart_name/$chartpkg --version $number -n $namespace
  ```
  - List thông tin
  ```
@@ -114,11 +114,11 @@ Trang tìm kiếm repo public https://artifacthub.io/packages/search?kind=0
  ```
  - Nâng cấp version lên version mới
  ```
-  helm upgrade $name $chart_name/$chartpkg --version $newversionnumber -n $namespace
+  helm upgrade $name_release $chart_name/$chartpkg --version $newversionnumber -n $namespace
  ```
  - Xem lịch sử cập nhật của release
  ```
-  helm history $name
+  helm history $name_release
  ```
  - Quay trở lại version cũ
  ```
@@ -126,11 +126,11 @@ Trang tìm kiếm repo public https://artifacthub.io/packages/search?kind=0
   ```
   - Lấy ra tất cả thông tin của chart
   ```
-   helm get all $name_chart 
+   helm get all $name_release 
   ```
   - Lấy ra thông tin manifest
   ```
-   helm get mainifest $name_chart
+   helm get mainifest $name_release
   ```
   # Cách viết helm chart
   - Tạo chart mới
